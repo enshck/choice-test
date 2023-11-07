@@ -1,0 +1,9 @@
+.root {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    min-height: 150px;
+    max-height: 300px;
+    resize: vertical;
+    padding: 15px;
+    outline: none;
+}

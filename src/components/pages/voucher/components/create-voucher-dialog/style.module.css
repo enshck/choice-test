@@ -1,0 +1,16 @@
+.root {
+    width: 100%;
+}
+
+.voucherContainer {
+    padding: 10px;
+}
+
+.voucher {
+    width: 400px;
+}
+
+.voucherData {
+    display: flex;
+    align-items: center;
+}

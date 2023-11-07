@@ -1,6 +1,6 @@
 .root {
     width: 100%;
-    box-shadow: inset 0px -1px 1px #e5eaf2;
+    box-shadow: inset 0px -1px 1px var(--border-color);
     padding: 20px;
     display: flex;
     align-items: center;

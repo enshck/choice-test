@@ -1,0 +1,76 @@
+.root {
+    width: 100%;
+    position: relative;
+}
+
+.inputContainer {
+    width: 100%;
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: 10px;
+}
+
+.inputContainer > input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.inputContainer > input:focus {
+    outline: none;
+}
+
+.popover {
+    position: absolute;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.popoverElement {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.popoverElement.selected {
+    border: 1px solid var(--border-color); 
+}
+
+.popoverElement:hover {
+    border: 1px solid var(--border-color); 
+}
+
+.selectedUser {
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.selectedUsersContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.selectedUser > button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0;
+}
