@@ -1,0 +1,12 @@
+.root {
+    width: 100%;
+    box-shadow: inset 0px -1px 1px #e5eaf2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.root > h2 {
+    font-weight: 400;
+}

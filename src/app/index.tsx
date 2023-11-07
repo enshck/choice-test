@@ -1,10 +1,14 @@
-import { Router } from 'components/router';
 import { BrowserRouter } from 'react-router-dom';
 
-const App = () => (
-  <BrowserRouter>
-    <Router />
-  </BrowserRouter>
-);
+import { Router } from 'components/router';
+import './i18next';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
+};
 
 export default App;
