@@ -1,0 +1,59 @@
+.root {
+    width: 400px;
+    box-shadow: 0px 0px 5px 5px var(--border-color);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.root > h1 {
+    font-weight: 400;
+    color: #fff;
+}
+
+.voucherData {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.messageContainer {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.messageContainer > p {
+    font-weight: 400;
+    color: #fff;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.amountContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.amountContainer > p {
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+}
+
+@media(max-width: 500px) {
+    .root {
+        width: 300px;
+    }
+}
+
+@media(max-width: 400px) {
+    .root {
+        width: 250px;
+    }
+}

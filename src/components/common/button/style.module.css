@@ -8,10 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
 }
 
-.button::first-letter {
-    text-transform: uppercase;
+.button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .button:hover {
@@ -20,5 +22,5 @@
 }
 
 .button:focus {
-    outline: 1px solid var(--inputs-active-color);
+    border: 1px solid var(--main-color);
 }

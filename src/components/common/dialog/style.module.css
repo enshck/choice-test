@@ -49,10 +49,6 @@
     font-weight: 400;
 }
 
-.header > h3::first-letter {
-    text-transform: uppercase;
-}
-
 .content {
-    padding: 10px;
+    width: 100%;
 }

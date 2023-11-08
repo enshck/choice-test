@@ -14,20 +14,17 @@ export const LanguageSwitch = ({
   return (
     <div className={style.root}>
       {options.map((elem, index) => (
-        <>
+        <div className={style.element} key={elem}>
           <button
-            key={elem}
             onClick={() => handleChange(elem)}
-            style={
-              elem === value ? { color: 'var(--inputs-active-color)' } : {}
-            }
+            style={elem === value ? { color: 'var(--main-color)' } : {}}
           >
             {elem}
           </button>
           {options.length - 1 !== index && (
             <div className={style.separateLine} />
           )}
-        </>
+        </div>
       ))}
     </div>
   );

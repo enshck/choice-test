@@ -19,7 +19,7 @@ export const VoucherPage = () => {
 
   return (
     <div className={styles.root}>
-      <Button onClick={openDialog}>{t`create a voucher`}</Button>
+      <Button onClick={openDialog}>{t`Create a voucher`}</Button>
       <CreateVoucherDialog isOpened={isOpened} onClose={closeDialog} />
     </div>
   );

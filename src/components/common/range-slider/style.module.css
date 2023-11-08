@@ -5,7 +5,7 @@
 .root > input {
     -webkit-appearance: none;
     width: 100%;
-    background: rgb(25, 118, 210);
+    background: var(--main-color);
     border-radius: 5px;
     width: 100%;
     height: 6px;
@@ -20,7 +20,7 @@
     appearance: none;
     width: 20px;
     height: 20px;
-    background: rgb(25, 118, 210);
+    background: var(--main-color);
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid var(--border-color);
@@ -29,7 +29,7 @@
 .root > input::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    background: rgb(25, 118, 210);
+    background: var(--main-color);
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid var(--border-color);
@@ -45,4 +45,8 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
+}
+
+.valuesContainer > p {
+    opacity: 0.5;
 }

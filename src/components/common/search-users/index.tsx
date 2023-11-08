@@ -1,4 +1,12 @@
-import { ChangeEvent, useState, useRef, useEffect } from 'react';
+import {
+  ChangeEvent,
+  useState,
+  useRef,
+  useEffect,
+  KeyboardEvent as KeyboardEventReact,
+} from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDebounce } from 'react-use';
 
 import style from './style.module.css';
 import { getUsers } from 'requests';
@@ -15,17 +23,22 @@ type SearchFieldProps = {
   selectedValues: UserOption[];
   onChange: (values: UserOption[]) => void;
   placeholder: string;
+  error?: string | null;
 };
 
 export const SearchUsers = ({
   onChange,
   selectedValues,
   placeholder,
+  error,
 }: SearchFieldProps) => {
+  const { t } = useTranslation();
   const rootRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [isOpenedPopover, setOpenedPopover] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState<UserOption[]>([]);
+  const [isLoading, setLoading] = useState(false);
   const [selectedElementIndex, setSelectedElementIndex] = useState<
     number | null
   >(null);
@@ -42,12 +55,19 @@ export const SearchUsers = ({
     setSearchValue('');
 
     setSelectedElementIndex(null);
+
+    inputRef?.current?.blur();
   };
 
   useDetectClickOutside(rootRef, closePopover);
 
-  const getData = async (search: string) => {
-    const users = await getUsers(search);
+  const getData = async () => {
+    if (!searchValue) {
+      return;
+    }
+
+    setLoading(true);
+    const users = await getUsers(searchValue);
 
     const selectedUsersIds = selectedValues.map((elem) => elem.value);
 
@@ -59,12 +79,11 @@ export const SearchUsers = ({
       }));
 
     setOptions(filteredUsers);
+    setLoading(false);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-
-    void getData(value);
 
     setSearchValue(value);
   };
@@ -83,6 +102,20 @@ export const SearchUsers = ({
 
     closePopover();
   };
+
+  const onInputBlur = (e: KeyboardEventReact<HTMLInputElement>) => {
+    if (e.key === 'Tab') {
+      closePopover();
+    }
+  };
+
+  useDebounce(
+    () => {
+      void getData();
+    },
+    400,
+    [searchValue]
+  );
 
   useEffect(() => {
     const onArrowPressHandler = (e: KeyboardEvent) => {
@@ -120,7 +153,13 @@ export const SearchUsers = ({
 
   return (
     <div className={style.root} ref={rootRef}>
-      <div className={style.inputContainer}>
+      <div
+        className={
+          error
+            ? `${style.inputContainer} ${style.inputError}`
+            : style.inputContainer
+        }
+      >
         <Search width={16} height={16} className={style.searchIcon} />
         <input
           type="text"
@@ -128,6 +167,8 @@ export const SearchUsers = ({
           onChange={handleChange}
           placeholder={placeholder}
           onFocus={openPopover}
+          ref={inputRef}
+          onKeyDown={(e) => onInputBlur(e)}
         />
       </div>
       {isOpenedPopover && (
@@ -147,7 +188,13 @@ export const SearchUsers = ({
               </div>
             ))
           ) : (
-            <p>Not found users</p>
+            <p>
+              {isLoading
+                ? t`Loading...`
+                : searchValue
+                ? t`Not found`
+                : t`Start typing`}
+            </p>
           )}
         </div>
       )}
@@ -160,6 +207,9 @@ export const SearchUsers = ({
             </button>
           </div>
         ))}
+      </div>
+      <div className={style.error}>
+        <p>{error}</p>
       </div>
     </div>
   );
