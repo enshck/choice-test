@@ -90,6 +90,11 @@
     margin-top: 3px;
 }
 
+.error {
+    padding-top: 8px;
+    padding-left: 4px;
+}
+
 .error > p {
     color: var(--error-color);
     position: absolute;

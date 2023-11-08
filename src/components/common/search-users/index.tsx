@@ -217,9 +217,11 @@ export const SearchUsers = ({
           ))}
         </div>
       )}
-      <div className={style.error}>
-        <p>{error}</p>
-      </div>
+      {error && (
+        <div className={style.error}>
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 };
