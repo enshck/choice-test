@@ -1,3 +1,13 @@
 {
-    "create a voucher": "create a voucher"
+    "Create a voucher": "Create a voucher",
+    "Loading...": "Loading...",
+    "Not found": "Not found",
+    "Start typing": "Start typing",
+    "Request to the payment system. Not implemented": "Request to the payment system. Not implemented",
+    "Search users (by phone or name)": "Search users (by phone or name)",
+    "Please select more users": "Please select more users",
+    "Enter a message for the voucher": "Enter a message for the voucher",
+    "Pay & Send": "Pay & Send",
+    "The voucher is valid for one year": "The voucher is valid for one year",
+    "Voucher": "Voucher"
 }

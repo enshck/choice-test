@@ -14,7 +14,7 @@ export const VoucherCard = ({ amount, message }: VoucherCardProps) => {
 
   return (
     <div className={style.root} style={{ background }}>
-      <h1>Voucher</h1>
+      <h1>{t`Voucher`}</h1>
       <div className={style.voucherData}>
         <div className={style.messageContainer}>
           <p>{message || t`The voucher is valid for one year`}</p>

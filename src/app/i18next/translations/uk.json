@@ -1,3 +1,13 @@
 {
-    "create a voucher": "створити ваучер"
+    "Create a voucher": "Створити ваучер",
+    "Loading...": "Загрузка...",
+    "Not found": "Не знайдено",
+    "Start typing": "Почнiть вводити",
+    "Request to the payment system. Not implemented": "Запрос до платiжної системи. Не реалiзовано",
+    "Search users (by phone or name)": "Пошук юзерів (по номеру або імені)",
+    "Please select more users": "Будь ласка виберіть більше юзерів",
+    "Enter a message for the voucher": "Введіть повідомлення для ваучеру",
+    "Pay & Send": "Оплатити і Відправити",
+    "The voucher is valid for one year": "Ваучер дійсний до одного року",
+    "Voucher": "Ваучер"
 }
