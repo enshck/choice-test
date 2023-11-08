@@ -31,7 +31,7 @@ export const Dialog = ({ isOpened, onClose, children, title }: DialogProps) => {
       <div className={`${style.container} ${isOpened ? style.opened : ''}`}>
         <div className={style.header}>
           <h3>{title}</h3>
-          <Button onClick={onClose}>
+          <Button onClick={onClose} ariaLabel="close-dialog">
             <Close width={15} height={15} />
           </Button>
         </div>

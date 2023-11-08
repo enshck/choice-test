@@ -56,6 +56,7 @@ export const CreateVoucherDialog = ({
   useEffect(() => {
     if (isOpened) {
       setFormData(initialData);
+      setFormError(false);
     }
   }, [isOpened]);
 
@@ -82,6 +83,7 @@ export const CreateVoucherDialog = ({
             value={formData.message}
             onChange={(value) => onChangeField(value, 'message')}
             placeholder={t`Enter a message for the voucher`}
+            maxLength={60}
           />
           <Button onClick={onSubmit}>{t`Pay & Send`}</Button>
         </div>

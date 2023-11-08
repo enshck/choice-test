@@ -6,19 +6,34 @@ type TextAreaProps = {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  maxLength?: number;
 };
 
-export const TextArea = ({ onChange, value, placeholder }: TextAreaProps) => {
+export const TextArea = ({
+  onChange,
+  value,
+  placeholder,
+  maxLength,
+}: TextAreaProps) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     onChange(e.target.value);
   };
 
   return (
-    <textarea
-      className={style.root}
-      value={value}
-      placeholder={placeholder}
-      onChange={handleChange}
-    />
+    <div className={style.root}>
+      <textarea
+        value={value}
+        placeholder={placeholder}
+        onChange={handleChange}
+        maxLength={maxLength}
+      />
+      {maxLength && (
+        <div className={style.countContainer}>
+          <p>
+            {value.length} / {maxLength}
+          </p>
+        </div>
+      )}
+    </div>
   );
 };

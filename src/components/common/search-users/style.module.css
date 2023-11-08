@@ -86,6 +86,10 @@
     padding: 0;
 }
 
+.removeUserIcon {
+    margin-top: 3px;
+}
+
 .error > p {
     color: var(--error-color);
     position: absolute;

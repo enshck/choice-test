@@ -198,16 +198,25 @@ export const SearchUsers = ({
           )}
         </div>
       )}
-      <div className={style.selectedUsersContainer}>
-        {selectedValues.map((elem, index) => (
-          <div className={style.selectedUser} key={elem.value}>
-            {elem.label}
-            <button onClick={() => handleDeleteElement(index)}>
-              <Close width={12} height={12} />
-            </button>
-          </div>
-        ))}
-      </div>
+      {selectedValues.length > 0 && (
+        <div className={style.selectedUsersContainer}>
+          {selectedValues.map((elem, index) => (
+            <div className={style.selectedUser} key={elem.value}>
+              {elem.label}
+              <button
+                onClick={() => handleDeleteElement(index)}
+                aria-label={'remove-selected-user'}
+              >
+                <Close
+                  width={12}
+                  height={12}
+                  className={style.removeUserIcon}
+                />
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
       <div className={style.error}>
         <p>{error}</p>
       </div>

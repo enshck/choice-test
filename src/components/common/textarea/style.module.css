@@ -1,5 +1,11 @@
 .root {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.root > textarea {
+    width: 100%;
     border: 1px solid var(--border-color);
     min-height: 150px;
     max-height: 300px;
@@ -7,4 +13,16 @@
     padding: 15px;
     outline: none;
     border-radius: 12px;
+}
+
+.countContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.countContainer > p {
+    font-size: 16px;
+    opacity: 0.5;
 }
